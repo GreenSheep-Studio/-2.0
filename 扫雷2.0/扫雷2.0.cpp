@@ -8,7 +8,7 @@
 
 #define LONG	10
 #define WIDE	10
-#define NUM		10
+#define NUM	10
 #define SIZE	70
 
 
@@ -17,34 +17,30 @@ char game[LONG][WIDE];
 IMAGE img[14];
 
 
-void BornMap()//³õÊ¼»¯ÓÎÏ·
+void BornMap()//åˆå§‹åŒ–æ¸¸æˆ
 {
-	srand((unsigned)time(NULL));//Ëæ»úÉú³ÉÀ×µÄ×ø±ê
-
+	srand((unsigned)time(NULL));//éšæœºç”Ÿæˆé›·çš„åæ ‡
 	initgraph(WIDE*SIZE, LONG*SIZE, SHOWCONSOLE);
-
-	loadimage(&img[0], L"./ËØ²Ä/0.jpg", SIZE, SIZE);
-	loadimage(&img[1], L"./ËØ²Ä/1.jpg", SIZE, SIZE);
-	loadimage(&img[2], L"./ËØ²Ä/2.jpg", SIZE, SIZE);
-	loadimage(&img[3], L"./ËØ²Ä/3.jpg", SIZE, SIZE);
-	loadimage(&img[4], L"./ËØ²Ä/4.jpg", SIZE, SIZE);
-	loadimage(&img[5], L"./ËØ²Ä/5.jpg", SIZE, SIZE);
-	loadimage(&img[6], L"./ËØ²Ä/6.jpg", SIZE, SIZE);
-	loadimage(&img[7], L"./ËØ²Ä/7.jpg", SIZE, SIZE);
-	loadimage(&img[8], L"./ËØ²Ä/8.jpg", SIZE, SIZE);
-	loadimage(&img[9], L"./ËØ²Ä/9.jpg", SIZE, SIZE);
-	loadimage(&img[10], L"./ËØ²Ä/10.jpg", SIZE, SIZE);
-	loadimage(&img[11], L"./ËØ²Ä/11.jpg", SIZE, SIZE);
+	loadimage(&img[0], L"./ç´ æ/0.jpg", SIZE, SIZE);
+	loadimage(&img[1], L"./ç´ æ/1.jpg", SIZE, SIZE);
+	loadimage(&img[2], L"./ç´ æ/2.jpg", SIZE, SIZE);
+	loadimage(&img[3], L"./ç´ æ/3.jpg", SIZE, SIZE);
+	loadimage(&img[4], L"./ç´ æ/4.jpg", SIZE, SIZE);
+	loadimage(&img[5], L"./ç´ æ/5.jpg", SIZE, SIZE);
+	loadimage(&img[6], L"./ç´ æ/6.jpg", SIZE, SIZE);
+	loadimage(&img[7], L"./ç´ æ/7.jpg", SIZE, SIZE);
+	loadimage(&img[8], L"./ç´ æ/8.jpg", SIZE, SIZE);
+	loadimage(&img[9], L"./ç´ æ/9.jpg", SIZE, SIZE);
+	loadimage(&img[10], L"./ç´ æ/10.jpg", SIZE, SIZE);
+	loadimage(&img[11], L"./ç´ æ/11.jpg", SIZE, SIZE);
 	int p = rand() % 3 + 1;
 	switch (p)
 	{
-	case 1:loadimage(&img[12], L"./ËØ²Ä/win.jpg", WIDE * SIZE, LONG * SIZE); break;
-	case 2:loadimage(&img[12], L"./ËØ²Ä/win1.jpg", WIDE * SIZE, LONG * SIZE); break;
-	default:loadimage(&img[12], L"./ËØ²Ä/win2.jpg", WIDE * SIZE, LONG * SIZE); break;
+	case 1:loadimage(&img[12], L"./ç´ æ/win.jpg", WIDE * SIZE, LONG * SIZE); break;
+	case 2:loadimage(&img[12], L"./ç´ æ/win1.jpg", WIDE * SIZE, LONG * SIZE); break;
+	default:loadimage(&img[12], L"./ç´ æ/win2.jpg", WIDE * SIZE, LONG * SIZE); break;
 	}
-	
-	loadimage(&img[13], L"./ËØ²Ä/GameOver.jpg", WIDE * SIZE, LONG * SIZE);
-
+	loadimage(&img[13], L"./ç´ æ/GameOver.jpg", WIDE * SIZE, LONG * SIZE);
 
 	for (int i = 0; i < LONG + 2; i++)
 	{
@@ -56,8 +52,8 @@ void BornMap()//³õÊ¼»¯ÓÎÏ·
 
 	for (int i = 1; i <= NUM;)
 	{
-		int a = rand() % LONG + 1;//Ëæ»úÉú³ÉÀ×µÄ×ø±ê
-		int b = rand() % WIDE + 1;//Ëæ»úÉú³ÉÀ×µÄ×ø±ê
+		int a = rand() % LONG + 1;//éšæœºç”Ÿæˆé›·çš„åæ ‡
+		int b = rand() % WIDE + 1;//éšæœºç”Ÿæˆé›·çš„åæ ‡
 		if (map[a][b] != -1)
 		{
 			map[a][b] = -1;
@@ -92,7 +88,7 @@ void BornMap()//³õÊ¼»¯ÓÎÏ·
 
 }
 
-void SetGame()//²¼ÖÃÓÎÏ·½çÃæ
+void SetGame()//å¸ƒç½®æ¸¸æˆç•Œé¢
 {
 	for (int i = 1; i < LONG + 1; i++)
 	{
@@ -126,7 +122,7 @@ void SetGame()//²¼ÖÃÓÎÏ·½çÃæ
 	}
 }
 
-bool Winif(int a)//ÅĞÓ®
+bool Winif(int a)//åˆ¤èµ¢
 {
 	int m = LONG * WIDE - NUM;
 	for (int i = 1; i < LONG + 1; i++)
@@ -148,23 +144,22 @@ bool Winif(int a)//ÅĞÓ®
 	}
 }
 
-
-void AOBS(int e, int f)//Automatically Open Blank Spaces(×Ô¶¯Õ¹¿ª¿Õ¸ñ)
+void AOBS(int e, int f)//Automatically Open Blank Spaces(è‡ªåŠ¨å±•å¼€ç©ºæ ¼)
 {
-	if (map[e][f] == 0)//µ±Ëù´¦¿éÎª0Ê±
+	if (map[e][f] == 0)//å½“æ‰€å¤„å—ä¸º0æ—¶
 	{
-		for (int p = e - 1; p <= e + 1; p++)//±éÀú¾Å¹¬¸ñ
+		for (int p = e - 1; p <= e + 1; p++)//éå†ä¹å®«æ ¼
 		{
 			for (int q = f - 1; q <= f + 1; q++)
 			{
 				if (map[p][q] >= 20 && map[p][q] <= 28)
 				{
 					map[p][q] -= 20;
-					if (map[p][q] == 0)//·¢ÏÖÊÇ0£¬½øĞĞµİ¹é
+					if (map[p][q] == 0)//å‘ç°æ˜¯0ï¼Œè¿›è¡Œé€’å½’
 					{
 						AOBS(p, q);
 					}
-					else//²»ÊÇ¾ÍÍË³ö
+					else//ä¸æ˜¯å°±é€€å‡º
 					{
 						break;
 					}
@@ -175,10 +170,10 @@ void AOBS(int e, int f)//Automatically Open Blank Spaces(×Ô¶¯Õ¹¿ª¿Õ¸ñ)
 }
 
 
-int main()//Ö÷º¯Êı
+int main()//ä¸»å‡½æ•°
 {
-	BornMap();//µ÷ÓÃµØÍ¼Éú³É 
-	SetGame();//µ÷ÓÃ½çÃæÉèÖÃ
+	BornMap();//è°ƒç”¨åœ°å›¾ç”Ÿæˆ 
+	SetGame();//è°ƒç”¨ç•Œé¢è®¾ç½®
 	int n = 1;
 	while (n != 0)
 	{
